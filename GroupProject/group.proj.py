@@ -29,3 +29,13 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 df = pd.read_csv('StudentPerformanceFactors.csv')
 
 print (df)
+
+print("First 5 rows of the dataset:\n", df.head())
+
+print("\nSummary statistics:\n", df.describe())
+
+df_cleaned = df.fillna({'Hours_Studied': df['Hours_Studied'].mean(), 'Exam_Score': 'Unknown'})
+print("\nCleaned Data:")
+print(df_cleaned)
+
+
