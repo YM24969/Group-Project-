@@ -92,3 +92,5 @@ print(f"R^2 score: {r2}")
 #Mean Squared Error - measuring the sensitivity to errors.lower values means better preditions
 rmse = root_mean_squared_error(y_test, y_pred)
 print(f'root mean squared error: {rmse}')
+
+##the goal of this evaluation is to get the RMSE result close to zero, since it is avergaing the distance of residuals. Hence, we can conclude that Hours_Studied is a poor predition of Exam_Score. 
