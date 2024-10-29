@@ -50,7 +50,6 @@ df_cleaned = df.fillna({'Hours_Studied': df['Hours_Studied'].mean(), 'Exam_Score
 print("\nCleaned Data:")
 print(df_cleaned)
 
-<<<<<<< Updated upstream
 # 3. Data Preprocessing
 # Convert categorical columns (Operating System, Gender) into numeric values using Label Encoding
 #le = LabelEncoder()
@@ -88,12 +87,10 @@ y_pred = lin_reg.predict(X_test_scaled)
 r2 = r2_score(y_test, y_pred)
 print(f"R^2 score: {r2}")
 
-## Conclusion: hours studied is not a valid or strong perditor for Exam score 
+##Conclusion: hours studied is not a valid or strong perditor for Exam score 
 
 #Mean Squared Error - measuring the sensitivity to errors.lower values means better preditions
 rmse = root_mean_squared_error(y_test, y_pred)
 print(f'root mean squared error: {rmse}')
 
-##the goal of this evaluation is to get the RMSE result close to zero, since it is avergaing the distance of residuals. Hence, we can conclude that Hours_Studied is a poor predition of Exam_Score. 
-=======
->>>>>>> Stashed changes
+##Conclusion:the goal of this evaluation is to get the RMSE result close to zero, since it is avergaing the distance of residuals. Hence, we can conclude that Hours_Studied is a poor predition of Exam_Score. 
