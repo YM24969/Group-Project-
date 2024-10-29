@@ -32,6 +32,7 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.metrics import root_mean_squared_error, r2_score
+from sklearn.metrics import mean_squared_error
 import seaborn as sns
 
 
@@ -39,7 +40,6 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 df = pd.read_csv('StudentPerformanceFactors.csv')
 
 print (df)
-
 
 print("First 5 rows of the dataset:\n", df.head())
 
@@ -77,6 +77,29 @@ X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 print(X_train_scaled)
 
+import numpy as np
+import matplotlib.pyplot as plt
+df = pd.DataFrame({
+    'Hours_studied': [23, 19, 25, 10, 15],
+    'Exam_score': [67, 74, 68, 70, 64]
+})
+
+df.plot(kind='scatter',x='Hours_studied', y='Exam_score', title='Scatter Plot Data')
+plt.show()
+
+# Bar Plot
+categories = ['Hours_Studied', 'Exam_Score']
+values = [10, 20]
+plt.bar(categories, values)
+plt.title('Bar Plot')
+plt.show()
+
+# Histogram
+data = np.random.randn(1000)
+plt.hist(data, bins=30)
+plt.title('Histogram')
+plt.show()
+
 #from sklearn.linear_model import LinearRegression, LogisticRegression
 lin_reg = LinearRegression()
 lin_reg.fit(X_train_scaled, y_train)
@@ -95,36 +118,3 @@ rmse = root_mean_squared_error(y_test, y_pred)
 print(f'root mean squared error: {rmse}')
 
 ##the goal of this evaluation is to get the RMSE result close to zero, since it is avergaing the distance of residuals. Hence, we can conclude that Hours_Studied is a poor predition of Exam_Score. 
-
-df_cleaned = df.fillna({'Hours_Studied': df['Hours_Studied'].mean(), 'Exam_Score': 'Unknown'})
-print("\nCleaned Data:")
-print(df_cleaned)
-
-import numpy as np
-import matplotlib.pyplot as plt
-df = pd.DataFrame({
-    'Hours_studied': [23, 19, 25, 10, 15],
-    'Exam_score': [67, 74, 68, 70, 64]
-})
-
-df.plot(kind='scatter',x='Hours_studied', y='Exam_score', title='Scatter Plot Data')
-plt.show()
-
-
-
-
-
-
-
-# Bar Plot
-categories = ['Hours_Studied', 'Exam_Score']
-values = [10, 20]
-plt.bar(categories, values)
-plt.title('Bar Plot')
-plt.show()
-
-# Histogram
-data = np.random.randn(1000)
-plt.hist(data, bins=30)
-plt.title('Histogram')
-plt.show()
