@@ -39,12 +39,16 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 df = pd.read_csv('StudentPerformanceFactors.csv')
 
 print (df)
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 print("First 5 rows of the dataset:\n", df.head())
 
 print("\nSummary statistics:\n", df.describe())
 
 
+<<<<<<< Updated upstream
 #Preprocessing: filling missing values with mean 
 df_cleaned = df.fillna({'Hours_Studied': df['Hours_Studied'].mean(), 'Exam_Score': df['Exam_Score'].mean()})
 print("\nCleaned Data:")
@@ -96,4 +100,38 @@ print(f'root mean squared error: {rmse}')
 
 ##the goal of this evaluation is to get the RMSE result close to zero, since it is avergaing the distance of residuals. Hence, we can conclude that Hours_Studied is a poor predition of Exam_Score. 
 =======
+>>>>>>> Stashed changes
+=======
+df_cleaned = df.fillna({'Hours_Studied': df['Hours_Studied'].mean(), 'Exam_Score': 'Unknown'})
+print("\nCleaned Data:")
+print(df_cleaned)
+
+import numpy as np
+import matplotlib.pyplot as plt
+df = pd.DataFrame({
+    'Hours_studied': [23, 19, 25, 10, 15],
+    'Exam_score': [67, 74, 68, 70, 64]
+})
+
+df.plot(kind='scatter',x='Hours_studied', y='Exam_score', title='Scatter Plot Data')
+plt.show()
+
+
+
+
+
+
+
+# Bar Plot
+categories = ['Hours_Studied', 'Exam_Score']
+values = [10, 20]
+plt.bar(categories, values)
+plt.title('Bar Plot')
+plt.show()
+
+# Histogram
+data = np.random.randn(1000)
+plt.hist(data, bins=30)
+plt.title('Histogram')
+plt.show()
 >>>>>>> Stashed changes
